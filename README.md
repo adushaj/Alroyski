@@ -1,7 +1,7 @@
 # Alvksi
 > A DiscordJS Bot for random team scrimmages
 
-## Caution
+## About
 
 There are many web applications that you can find online that will take a list of names from your input and randomly shuffle them into groups of any size you desire. The particular usage for this would be within a video game clan Discord where team scrimmages occur. Gather all of your clan members into a voice channel, execute a command to Alvksi, and watch as the players are randomly drafted into teams of 3 and moved to their team voice channels. Then you are ready to play.
 
