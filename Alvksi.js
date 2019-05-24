@@ -27,6 +27,8 @@ client.on('ready', () => {
     notice(`Booted online as ${client.user.username}#${client.user.discriminator}`);
 });
 
+client.on('error', console.error);
+
 client.on('message', message => {
     if (message.author.bot) return;
     if (message.content.startsWith(".")) return command(message);
@@ -45,15 +47,22 @@ function command(message) {
     if (command == "multiply") return multiply(args, message);
     if (command == "draft") return draft(args, message);
     if (command == "gather") return gather(args, message);
+	if (command == "montage") return montage(args, message);
     if (command == "join") return join(member, channel);
     
     channel.send(user + " Sorry, I don't understand that command.\nNeed help with my functions? Use `.help` or message `Alvks#7673`.").then(msg => msg.delete(10 * 1000));
 };
 
+function montage(args, message) {
+	if (args.length < 0) return message.channel.send(`Looks like you need help with ${args}. Visit the repository at https://github.com/adushaj/Alvksi to learn how to use this bot.`);
+	if (args == "destiny") return message.channel.send(`I record gameplay with Shadowplay and cut it all in Sony Vegas. \nIf you would like to see my Destiny gameplay, visit the YouTube playlist below. \n\nhttps://www.youtube.com/watch?v=LlJRbY-YmSQ&list=PL57SfHRFPJkDh88P2Q6Zeo1mi2hLsoCsC`);
+    if (args == "overwatch") return message.channel.send(`I record gameplay with Shadowplay and cut it all in Sony Vegas. \nIf you would like to see my Overwatch gameplay, visit the YouTube playlist below. \n\nhttps://www.youtube.com/watch?v=0LEvm4NOnv8&list=PL57SfHRFPJkChM_u-RATnF8CQSWj2Sw0T`);
+	
+}
 
 function help(args, message) {
     if (args.length > 0) return message.channel.send(`Looks like you need help with ${args}`);
-    message.channel.send("This bot's function is to randomly draft teams of 3 from a voice channel, output those rosters to the chat, then move the players to a team voice channel.\nRequirements are to have a voice channel named `Pregame` and 2+ team voice channels, like `team 1`, `team 2`, etc. \nEnter `.draft` to roll teams and `.gather` to re-draft. \nFound a bug? Message Alvks#7673 in Discord.");
+    message.channel.send("This bot's function is to randomly draft teams of 3 from a voice channel, output those rosters to the chat, then move the players to a team voice channel.\nRequirements are to have a voice channel named `Pregame` and 2+ team voice channels, like `team 1`, `team 2`, etc. \nEnter `.draft` to roll teams and `.gather` to re-draft. \nFound a bug? Message `Alvks#1337` in Discord.\nWant to contribute or view more commands? Visit the repository at https://github.com/adushaj/Alvksi");
 	
 };
 // this function is here strictly for event handling tests
@@ -69,7 +78,7 @@ function draft(args, message) {
 	const vc = message.guild.channels.find(x => x.name.toLowerCase().includes("pregame"));
     const members = Array.from(vc.members);
     const teams = chunkify(members, 3);
-
+	message.channel.send("Teams are set. To re-draft teams, enter `.gather` to return players to the Pregame channel.");
     teams.forEach((members, i) => {
         const channels = Array.from(message.guild.channels.filter(x => x.name.toLowerCase().includes("team") && x.type == "voice"));
 
@@ -80,7 +89,6 @@ function draft(args, message) {
         embed.setDescription(members.map(x => `> ${x[1]}`));
 
         message.channel.send(embed);
-		message.channel.send("Teams are set. To re-draft teams, enter `.gather` to return players to the Pregame channel.");
 		
         members.forEach(member => {
             member[1].setVoiceChannel(channels[i][1]);
@@ -128,6 +136,5 @@ function chunkify(myArray, chunk_size){
 function notice(message) {
     console.log(chalk.red("[NOTICE]: ") + chalk.gray(message));
 };
-
-bot_secret_token = ""
+bot_secret_token = "NTc4NzA0NjEyNzgyMTEyNzc4.XODyIg.PpGYjDXkW5ytb9NYrVy6tiucrzU"
 client.login(bot_secret_token)
