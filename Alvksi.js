@@ -144,10 +144,6 @@ function chunkify(myArray, chunk_size){
 function notice(message) {
     console.log(chalk.red("[NOTICE]: ") + chalk.gray(message));
 };
-<<<<<<< HEAD
 
 client.login(config.token);
-=======
-bot_secret_token"
-client.login(bot_secret_token)
->>>>>>> b85f15d494f61ec2f6f2e867bb43d1fc019c57bd
+
