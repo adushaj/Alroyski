@@ -1,6 +1,7 @@
 const Discord = require('discord.js'),
       client = new Discord.Client();
 const chalk = require('chalk');
+const config = require("./config.json");
 
 client.on('ready', () => {
     client.user.setPresence({ status: 'online', game: { name: 'Enter .help to get started' } });
@@ -42,28 +43,36 @@ function command(message) {
     const split = message.cleanContent.split(" "),
           command = split[0].substr(1),
           args = split.slice(1);
-
+		  
+	if (command == "join") return join(member, channel);
     if (command == "help") return help(args, message);
     if (command == "multiply") return multiply(args, message);
     if (command == "draft") return draft(args, message);
     if (command == "gather") return gather(args, message);
 	if (command == "montage") return montage(args, message);
-    if (command == "join") return join(member, channel);
+    if (command == "specs") return specs(args, message);
     
     channel.send(user + " Sorry, I don't understand that command.\nNeed help with my functions? Use `.help` or message `Alvks#7673`.").then(msg => msg.delete(10 * 1000));
 };
-
+function specs(args, message) {
+    if (args.length > 0) return message.channel.send(`Looks like you need help with ${args}`);
+	const embed = new Discord.RichEmbed();
+	embed.setTitle(`Alvks' current PC specs`);
+	//embed.setAuthor(client.user.username, client.user.avatarURL);
+	embed.setColor('#36393F');
+	embed.setDescription(`CPU: Intel i7-7700K\nGPU: EVGA GeForce GTX 1080 Ti FTW3\nMouse: Glorious Model O`);
+	message.channel.send(embed);
+};
 function montage(args, message) {
 	if (args.length < 0) return message.channel.send(`Looks like you need help with ${args}. Visit the repository at https://github.com/adushaj/Alvksi to learn how to use this bot.`);
 	if (args == "destiny") return message.channel.send(`I record gameplay with Shadowplay and cut it all in Sony Vegas. \nIf you would like to see my Destiny gameplay, visit the YouTube playlist below. \n\nhttps://www.youtube.com/watch?v=LlJRbY-YmSQ&list=PL57SfHRFPJkDh88P2Q6Zeo1mi2hLsoCsC`);
     if (args == "overwatch") return message.channel.send(`I record gameplay with Shadowplay and cut it all in Sony Vegas. \nIf you would like to see my Overwatch gameplay, visit the YouTube playlist below. \n\nhttps://www.youtube.com/watch?v=0LEvm4NOnv8&list=PL57SfHRFPJkChM_u-RATnF8CQSWj2Sw0T`);
-	
-}
+	if (args == "rocketleague") return message.channel.send(`I record gameplay with Shadowplay and cut it all in Sony Vegas. \nIf you would like to see my Rocket League gameplay, visit the YouTube playlist below. \n\nhttps://www.youtube.com/watch?v=LcPaAMSeBfg&list=PL57SfHRFPJkARqtd_ugsHiqTEd_ytLBqP`);
+};
 
 function help(args, message) {
     if (args.length > 0) return message.channel.send(`Looks like you need help with ${args}`);
     message.channel.send("This bot's function is to randomly draft teams of 3 from a voice channel, output those rosters to the chat, then move the players to a team voice channel.\nRequirements are to have a voice channel named `Pregame` and 2+ team voice channels, like `team 1`, `team 2`, etc. \nEnter `.draft` to roll teams and `.gather` to re-draft. \nFound a bug? Message `Alvks#1337` in Discord.\nWant to contribute or view more commands? Visit the repository at https://github.com/adushaj/Alvksi");
-	
 };
 // this function is here strictly for event handling tests
 function multiply(args, message) {
@@ -74,7 +83,6 @@ function multiply(args, message) {
 
 function draft(args, message) {
     if (args.length > 0) return message.channel.send("You're not using this command right, don't use any arguments with it.\nAlso ensure that the members are in the pregame voice channel before typing the command.");
-
 	const vc = message.guild.channels.find(x => x.name.toLowerCase().includes("pregame"));
     const members = Array.from(vc.members);
     const teams = chunkify(members, 3);
@@ -136,5 +144,8 @@ function chunkify(myArray, chunk_size){
 function notice(message) {
     console.log(chalk.red("[NOTICE]: ") + chalk.gray(message));
 };
-bot_secret_token"
-client.login(bot_secret_token)
+
+
+client.login(config.token);
+
+
