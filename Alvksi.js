@@ -136,5 +136,5 @@ function chunkify(myArray, chunk_size){
 function notice(message) {
     console.log(chalk.red("[NOTICE]: ") + chalk.gray(message));
 };
-bot_secret_token = "NTc4NzA0NjEyNzgyMTEyNzc4.XODyIg.PpGYjDXkW5ytb9NYrVy6tiucrzU"
+bot_secret_token"
 client.login(bot_secret_token)
