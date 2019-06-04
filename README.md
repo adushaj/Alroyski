@@ -22,5 +22,5 @@ Commands for this bot follow this structure: `.<command> [argument]`.
 |---------|-------------|
 | `.help` | Shows commands and developer contact info |
 | `.draft` | Randomly assigns players in Pregame channel into teams |
-| `.restart` | Returns drafted players back to Pregame channel |
+| `.gather` | Returns drafted players back to Pregame channel |
 | `.montage [argument]` | Shares a YouTube playlist of my gameplay montages, depending on which game is given as an argument. For example, entering `.montage destiny` will return a link to my Destiny montages. |
