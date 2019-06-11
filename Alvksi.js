@@ -57,9 +57,9 @@ function command(message) {
     if (command == "help") return help(args, message);
     if (command == "draft") return draft(args, message);
     if (command == "gather") return gather(args, message);
-    if (command == "montage") return montage(args, message);
+	  if (command == "montage") return montage(args, message);
     if (command == "specs") return specs(args, message);
-    if (command == "embed") return embed(args, message);
+	  if (command == "embed") return embed(args, message);
     if (command == "nut") return nut(args, message);
 
     channel.send(user + " Sorry, I don't understand that command.\nNeed help with my functions? Use `.help` or message `Alvks#1337`.").then(msg => msg.delete(10 * 1000));
@@ -70,7 +70,7 @@ function nut(args, message) {
   embed.setImage('https://i.imgur.com/gVnh8WQ.jpg');
   message.channel.send(embed);
 };
-// this is here for my own reference
+
 function embed(args, message) {
 const exampleEmbed = new Discord.RichEmbed()
 	.setColor('#0099ff')
@@ -147,6 +147,9 @@ function draft(args, message) {
     const vc = message.guild.channels.find(x => x.name.toLowerCase().includes("pregame"));
     const members = shuffle(Array.from(vc.members));
     const teams = chunkify(members, value);
+   
+	//team1 = vc.members.random(value/2);
+//	team2 = vc.members.filter(m=>!team1.includes(m)).random(value/2);
 	  message.channel.send("Teams are set. To re-draft teams, enter `.gather` to return players to the Pregame channel.");
     teams.forEach((members, i) => {
         const channels = Array.from(message.guild.channels.filter(x => x.name.toLowerCase().includes("team") && x.type == "voice"));
