@@ -140,17 +140,19 @@ function help(args, message) {
 };
 // draft teams
 function draft(args, message) {
-  //  if (args.length > 0) return message.channel.send("You're not using this command right. You cannot have teams greater than 6 members each nor less than 1.\nAlso ensure that the members are in the pregame voice channel before typing the command.");
-  const value = parseInt(args[0]);
-  if (isNaN(value) || value < 1 || value > 6) return message.channel.send("Provide a value between 1 and 6. This will be the size of each team. Example: Entering `.draft 2` will create teams of 2 players.");
+    if (args.length !== 1) return message.channel.send("You're not using this command right. You cannot have teams greater than 6 members each nor less than 1.\nAlso ensure that the members are in the pregame voice channel before typing the command.");
+    const value = parseInt(args[0]);
+    if (isNaN(value) || value < 1 || value > 6) return message.channel.send("Provide a value between 1 and 6. This will be the size of each team. Example: Entering `.draft 2` will create teams of 2 players.");
 
     const vc = message.guild.channels.find(x => x.name.toLowerCase().includes("pregame"));
     const members = shuffle(Array.from(vc.members));
+    const diff = (value * 2) - members.length;
+    if (diff !== 0) return message.channel.send(`You need ${diff > 0 ? 'another' : 'to remove'} ${Math.abs(diff)} people ${diff > 0 ? 'to join' : 'from'} the voice channel (${members.length}/${value * 2}).`);
     const teams = chunkify(members, value);
    
-	//team1 = vc.members.random(value/2);
-//	team2 = vc.members.filter(m=>!team1.includes(m)).random(value/2);
-	  message.channel.send("Teams are set. To re-draft teams, enter `.gather` to return players to the Pregame channel.");
+	// team1 = vc.members.random(value/2);
+    // team2 = vc.members.filter(m=>!team1.includes(m)).random(value/2);
+	message.channel.send("Teams are set. To re-draft teams, enter `.gather` to return players to the Pregame channel.");
     teams.forEach((members, i) => {
         const channels = Array.from(message.guild.channels.filter(x => x.name.toLowerCase().includes("team") && x.type == "voice"));
 
@@ -167,13 +169,15 @@ function draft(args, message) {
     });
 };
 
-function gather(args, message) {
+async function gather(args, message) {
     const channels = message.guild.channels.filter(x => x.name.toLowerCase().includes("team"));
-	const vc = message.guild.channels.find(x => x.name.toLowerCase().includes("pregame"));
-    channels.forEach(channel => {
+    const vc = message.guild.channels.find(x => x.name.toLowerCase().includes("pregame"));
+    for (let channel of channels) {
         if (channel.type != "voice") return;
-        channel.members.forEach(member => member.setVoiceChannel(vc));
-    });
+        for (let member of channel.members) {
+            await member.setVoiceChannel(vc)
+        }
+    }
 	message.channel.send("Players were successfully returned to the Pregame channel.");
 };
 
