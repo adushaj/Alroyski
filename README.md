@@ -11,7 +11,7 @@ There are many web applications that you can find online that will take a list o
 1. Voice channels properly named
   - Create a voice channel named "Pregame"
   - Create 2 or more voice channels with "Team" included somewhere in the name. Names like "Team 1" or "Alpha Team" will work.
-2. Add the bot to your server by clicking [this link](https://discordapp.com/oauth2/authorize?&client_id=578704612782112778&scope=bot&permissions=8).
+2. Add the bot to your server by clicking [this link](https://discordapp.com/oauth2/authorize?&client_id=578704612782112778&scope=bot&permissions=18082832).
 3. Once the bot is added to your server, you can interact with it using the commands listed below.
 
 ## Usage
