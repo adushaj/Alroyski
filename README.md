@@ -3,7 +3,7 @@
 
 ## About
 
-Gather all of your clan members into a voice channel, execute a command to Alvksi, and watch as the players are randomly drafted into two teams of 1-6 players and moved to their team voice channels. Then, you are ready to play.
+Gather all of your clan members into a voice channel, execute a command to Alvksi, and watch as the players are randomly drafted into two teams of 2-6 players and moved to their team voice channels. Then, you are ready to play.
 
 ## Setup/Requirements
 1. Voice channels properly named
@@ -19,6 +19,6 @@ Commands for this bot follow this structure: `.<command> [argument]`.
 | Command | Description
 |---------|-------------|
 | `.help` | Shows commands and developer contact info. |
-| `.draft 1-6` | Randomly assigns players in Pregame channel into teams. You cannot execute this command unless there are an even number of members in the voice channel. For example, entering `.draft 2` when there are 5 members in the channel will fail. |
+| `.draft 2-6` | Randomly assigns players in Pregame channel into teams. You cannot execute this command unless there are an even number of members in the voice channel. For example, entering `.draft 2` when there are 5 members in the channel will fail. |
 | `.gather` | Returns drafted players back to Pregame channel. |
 | `.montage [argument]` | Shares a YouTube playlist of my gameplay montages, depending on which game is given as an argument. For example, entering `.montage destiny` will return a link to my Destiny montages. |
