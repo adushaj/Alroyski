@@ -134,7 +134,7 @@ function help(args, message) {
     	const embed = new Discord.RichEmbed();
     	embed.setColor('#f4b342');
     	embed.setTitle(`Alvksi`);
-    	embed.setDescription("This bot's function is to randomly draft teams of 3 from a voice channel, output those rosters to the chat, then move the players to a team voice channel.\nRequirements are to have a voice channel named `Pregame` and 2+ team voice channels, like `team 1`, `team 2`, etc. \nEnter `.draft` to roll teams and `.gather` to re-draft. \nFound a bug? Message `Alvks#1337` in Discord.\nWant to contribute or view more commands? Visit the repository at https://github.com/adushaj/Alvksi");
+    	embed.setDescription("This bot's function is to randomly draft teams of 2-6 players from a voice channel, output those rosters to the chat, then move the players to a team voice channel.\nRequirements are to have a voice channel named `Pregame` and 2 team voice channels, like `team 1`, `team 2`, etc. \nEnter `.draft` to roll teams and `.gather` to re-draft. \nFound a bug? Message `Alvks#1337` in Discord.\nWant to contribute or view more commands? Visit https://discordbots.org/bot/578704612782112778");
     	embed.setThumbnail('https://i.imgur.com/4cThS0m.jpg');
     	message.channel.send(embed);
 };
