@@ -76,7 +76,7 @@ function nut(args, message) {
 
 function leg(args, message) {
 	  const embed = new Discord.RichEmbed();
-	  embed.setImage('https://imgur.com/dh4lG4h.jpg');
+	  embed.setImage('https://i.imgur.com/ykurk7p_d.jpg');
 	  message.channel.send(embed);
 };
 
