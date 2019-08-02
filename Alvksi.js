@@ -61,23 +61,9 @@ function command(message) {
     if (command == "montage") return montage(args, message); // self-advertising of my montages 
     if (command == "specs") return specs(args, message); // my PC and peripheral specs 
     if (command == "embed") return embed(args, message); // this command is here for testing rich embedding 
-    if (command == "nut") return nut(args, message); // dumb meme lol
-if (command == "leg") return leg(args, message); // dumb meme lol
 
     
 channel.send(user + " Sorry, I don't understand that command.\nNeed help with my functions? Use `.help` or message `Alvks#1337`.").then(msg => msg.delete(10 * 1000));
-};
-
-function nut(args, message) {
-	  const embed = new Discord.RichEmbed();
-	  embed.setImage('https://i.imgur.com/gVnh8WQ.jpg');
-	  message.channel.send(embed);
-};
-
-function leg(args, message) {
-	  const embed = new Discord.RichEmbed();
-	  embed.setImage('https://i.imgur.com/ykurk7p.jpg');
-	  message.channel.send(embed);
 };
 
 function embed(args, message) {
