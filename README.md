@@ -1,9 +1,9 @@
-# Alvksi
+# Alroyski
 > A DiscordJS Bot for random team scrimmages
 
 ## About
 
-Gather all of your clan members into a voice channel, execute a command to Alvksi, and watch as the players are randomly drafted into two teams of 2-6 players and moved to their team voice channels. Then, you are ready to play.
+Gather all of your clan members into a voice channel, execute a command to Alroyski, and watch as the players are randomly drafted into two teams of 2-6 players and moved to their team voice channels. Then, you are ready to play.
 
 ## Setup/Requirements
 1. Voice channels properly named
