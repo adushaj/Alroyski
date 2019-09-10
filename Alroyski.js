@@ -63,7 +63,7 @@ function command(message) {
     if (command == "embed") return embed(args, message); // this command is here for testing rich embedding 
 
     
-channel.send(user + " Sorry, I don't understand that command.\nNeed help with my functions? Use `.help` or message `Alvks#1337`.").then(msg => msg.delete(10 * 1000));
+channel.send(user + " Sorry, I don't understand that command.\nNeed help with my functions? Use `.help` or message `Alroy#1337`.").then(msg => msg.delete(10 * 1000));
 };
 
 function embed(args, message) {
@@ -88,7 +88,7 @@ function embed(args, message) {
 function specs(args, message) {
   if (args.length > 0) return message.channel.send(`Looks like you need help with ${args}. Visit the repository at https://github.com/adushaj/Alvksi to learn how to use this bot.`);
 	const embed = new Discord.RichEmbed();
-	embed.setTitle(`Alvks' PC Specs`);
+	embed.setTitle(`Alroy's PC Specs`);
 	embed.setColor('#f4b342');
 	embed.setDescription(`CPU: Intel i7-7700K\nGPU: EVGA GeForce GTX 1080 Ti FTW3\nMonitor: Acer Predator XB252\nMouse: Glorious Model O`);
 	embed.addField('DPI/Sens', '400 DPI / 15 in-game / 1.0 ADS', true);
@@ -100,7 +100,7 @@ function montage(args, message) {
 	if (args == "destiny") {
 	const embed = new Discord.RichEmbed();
 	embed.setColor('#f4b342');
-	embed.setTitle(`Alvks' Destiny Montages`);
+	embed.setTitle(`Alroy's Destiny Montages`);
 	embed.setDescription('I record gameplay with Shadowplay and cut it all in Sony Vegas. \nIf you would like to see my Destiny gameplay, visit the YouTube playlist below. \n\nhttps://youtu.be/CGf_q2zCJV4');
 	embed.setThumbnail('https://i.imgur.com/4cThS0m.jpg');
 	message.channel.send(embed);
@@ -108,7 +108,7 @@ function montage(args, message) {
 	if (args == "overwatch") {
 	const embed = new Discord.RichEmbed();
 	embed.setColor('#f4b342');
-	embed.setTitle(`Alvks' Overwatch Montages`);
+	embed.setTitle(`Alroy's Overwatch Montages`);
 	embed.setDescription('I record gameplay with Shadowplay and cut it all in Sony Vegas. \nIf you would like to see my Overwatch gameplay, visit the YouTube playlist below. \n\nhttps://youtu.be/0LEvm4NOnv8');
 	embed.setThumbnail('https://i.imgur.com/4cThS0m.jpg');
 	message.channel.send(embed);
@@ -116,7 +116,7 @@ function montage(args, message) {
 	if (args == "rocketleague") {
 	const embed = new Discord.RichEmbed();
 	embed.setColor('#f4b342');
-	embed.setTitle(`Alvks' Rocket League Montages`);
+	embed.setTitle(`Alroy's Rocket League Montages`);
 	embed.setDescription('I record gameplay with Shadowplay and cut it all in Sony Vegas. \nIf you would like to see my Rocket League gameplay, visit the YouTube playlist below. \n\nhttps://youtu.be/LcPaAMSeBfg');
 	embed.setThumbnail('https://i.imgur.com/4cThS0m.jpg');
 	message.channel.send(embed);
@@ -127,7 +127,7 @@ function help(args, message) {
     	if (args.length > 0) return message.channel.send(`Looks like you need help with ${args}`);
     	const embed = new Discord.RichEmbed();
     	embed.setColor('#f4b342');
-    	embed.setTitle(`Alvksi`);
+    	embed.setTitle(`Alroy`);
     	embed.setDescription("This bot's function is to randomly draft teams of 2-6 players from a voice channel, output those rosters to the chat, then move the players to a team voice channel.\nRequirements are to have a voice channel named `Pregame` and 2 team voice channels, like `team 1`, `team 2`, etc. \nEnter `.draft` to roll teams and `.gather` to re-draft. \nFound a bug? Message `Alvks#1337` in Discord.\nWant to contribute or view more commands? Visit https://discordbots.org/bot/578704612782112778");
     	embed.setThumbnail('https://i.imgur.com/4cThS0m.jpg');
     	message.channel.send(embed);
