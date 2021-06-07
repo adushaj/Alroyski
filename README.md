@@ -1,4 +1,7 @@
 # Alroyski
+
+## As of May 2021, this bot is no longer supported nor am I hosting it. I made this decision after becoming increasingly frustrated with malicious attempts being made to shut it down. The fight to prevent that no longer became worth it so thank you for your understanding!
+
 > A DiscordJS Bot for random team scrimmages
 
 ## About
